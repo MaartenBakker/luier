@@ -1,0 +1,130 @@
+
+  html{
+
+    background-color: #7e9e60;
+    font-family: 'Candara', Candara, Calibri, Segoe, "Segoe UI", Optima,
+    Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    /* color: #383838; */
+    font-size: 1.6em;
+    text-align: center;
+
+  }
+
+  #titel {
+    color: #f2f4f0;
+    font-size: 300%;
+    margin: 5%;
+    margin-top: 60px;
+  }
+
+  #buttonPapaMamacontainer {
+   margin-top: 5%;
+   padding-left: 5%;
+   padding-right: 5%;
+   position: center;
+
+  }
+
+  #papaMamaContainer {
+    padding-top: 5%;
+    font-size: 150%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #papa {
+    float: left;
+    width: 41%;
+    background-color: lightblue;
+    border: 2px solid #8db7c4;
+    border-radius: 8px;
+    color: #465B62;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin: 3%;
+
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+
+  }
+
+  #papa:hover {
+    background-color: #8db7c4;
+    color: #f2f4f0;
+    cursor:pointer;
+  }
+
+  #mama {
+    float: right;
+    /* align: right; */
+    width: 41%;
+    background-color: pink;
+    border: 2px solid #ce9aa3;
+    border-radius: 8px;
+    color: #6D5257;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin: 3%;
+
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+
+  #mama:hover {
+    background-color: #ce9aa3;
+    color: #f2f4f0;
+    cursor:pointer;
+  }
+
+  button {
+    font: inherit;
+    color: #525D49;
+    background-color: #d4fcb1;
+
+    border-radius: 8px;
+    border: 2px solid #98bf75;
+
+
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+
+  }
+
+  #clickButton {
+    width: 50%;
+    font-size: 150%;
+    padding: 4% 4%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    -webkit-animation: pulse 2s linear infinite;
+  }
+
+  #resetButton {
+    margin-top: 5%;
+  }
+
+
+
+  @-webkit-keyframes pulse {
+ 0% {
+ -webkit-transform: scale(1, 1);
+}
+ 50% {
+ -webkit-transform: scale(1.05, 1.05);
+}
+ 100% {
+ -webkit-transform: scale(1, 1);
+};
+}
+
+  button:hover {
+    background-color: #98bf75;
+    color: #f2f4f0;
+    cursor:pointer;
+  }
+
+  button:focus {
+    outline: none;
+  }
