@@ -44,6 +44,7 @@
     padding-bottom: 5%;
     padding-top: 5%;
     margin: 3%;
+    overflow-wrap: break-word;
 
     -webkit-transition-duration: 0.2s; /* Safari */
     transition-duration: 0.2s;
@@ -67,6 +68,7 @@
     padding-bottom: 5%;
     padding-top: 5%;
     margin: 3%;
+    overflow-wrap: break-word;
 
     -webkit-transition-duration: 0.2s; /* Safari */
     transition-duration: 0.2s;
