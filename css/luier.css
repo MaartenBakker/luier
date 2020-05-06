@@ -1,12 +1,12 @@
 
+
   html{
 
     /* background-color: #7e9e60; */
     background-image:
     url("../img/luier_background_green_extra_extra_small.jpg");
-    background-repeat:
-    font-family: 'Candara', Candara, Calibri, Segoe, "Segoe UI", Optima,
-    Arial, sans-serif;
+    background-repeat: repeat;
+    font-family: "Candara";
     font-weight: bold;
     font-style: italic;
     /* color: #383838; */
