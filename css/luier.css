@@ -1,7 +1,10 @@
 
   html{
 
-    background-color: #7e9e60;
+    /* background-color: #7e9e60; */
+    background-image:
+    url("../img/luier_background_green_extra_extra_small.jpg");
+    background-repeat:
     font-family: 'Candara', Candara, Calibri, Segoe, "Segoe UI", Optima,
     Arial, sans-serif;
     font-weight: bold;
@@ -17,6 +20,12 @@
     font-size: 300%;
     margin: 5%;
     margin-top: 60px;
+    /* backdrop-filter: blur(1px);
+    border-radius: 8px;
+    moz-box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.1);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.1); */
+
   }
 
   #buttonPapaMamacontainer {

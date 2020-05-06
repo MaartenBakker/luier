@@ -87,30 +87,29 @@ $(document).ready(function(){
     function countThree() {
       countDownSound.play();
       $("#clickButton").html("3");
-      $("html").css('background-color', 'orange');
+      $("html").css("background-image", "url(img/luier_background_light_orange_extra_extra_small.jpg)");
     }
 
     function countTwo() {
       countDownSound.play();
       $("#clickButton").html("2");
-      $("html").css('background-color', '#ff8100');
+      $("html").css("background-image", "url(img/luier_background_orange_extra_extra_small.jpg)");
     }
 
     function countOne() {
       countDownSound.play();
       $("#clickButton").html("1");
-      $("html").css('background-color', '#ff4d00');
+      $("html").css("background-image", "url(img/luier_background_dark_orange_extra_extra_small.jpg)");
     }
 
     function countZero() {
       $("#clickButton").html("0");
-      $("html").css('background-color', '#ff0d00');
+      $("html").css("background-image", "url(img/luier_background_red_extra_extra_small.jpg)");
     }
 
     function resetClickButton() {
       $("#clickButton").html("Klik");
-      $("html").css('background-color', '#7e9e60');
-
+      $("html").css("background-image", "url(img/luier_background_green_extra_extra_small.jpg)");
     }
 
     function updatePapaCounter() {
