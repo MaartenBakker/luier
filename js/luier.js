@@ -127,21 +127,25 @@ $(document).ready(function(){
       randomNumber *= 10;
       randomNumber = Math.ceil(randomNumber);
       if (randomNumber % 2 === 0) {
-          playFemaleSound();
+          showPapaAlert();
+      } else {
+          shwoMamaAlert();
+      }
+      setTimeout(resetClickButton, 3000);
+    }
+
+    function showPapaAlert(){
+      playFemaleSound();
           setTimeout(function(){alert(papa + " moet de luier verschonen.")}, 1000);
           setTimeout(function(){papaCounter++;}, 1000);
           setTimeout(updatePapaCounter, 1000);
-          // updatePapaCounter();
-      } else {
-          playMaleSound();
+    }
+
+    function shwoMamaAlert(){
+      playMaleSound();
           setTimeout(function(){alert(mama + " moet de luier verschonen.")}, 2000);
           setTimeout(function(){mamaCounter++;}, 2000);
-          // alert(mama + " moet de luier verschonen.");
           setTimeout(updateMamaCounter, 2000);
-
-          // updateMamaCounter();
-      }
-      setTimeout(resetClickButton, 3000);
     }
 
     function playMaleSound(){
