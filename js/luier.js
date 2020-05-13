@@ -1,11 +1,12 @@
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
     //add listeners
     $("#clickButton").click(wieVerschoontDeLuier);
     $("#papa").click(papaKnop);
     $("#mama").click(mamaKnop);
     $("#resetButton").click(resetScores);
+    // $("#mama").on("load", playFemaleSound());
 
     var papa = "Papa";
     var mama = "Mama";
@@ -125,11 +126,11 @@ $(document).ready(function(){
     function alertAnswer(){
       let randomNumber = Math.random();
       randomNumber *= 10;
-      randomNumber = Math.ceil(randomNumber);
+      randomNumber = Math.floor(randomNumber);
       if (randomNumber % 2 === 0) {
           showPapaAlert();
       } else {
-          shwoMamaAlert();
+          showMamaAlert();
       }
       setTimeout(resetClickButton, 3000);
     }
@@ -141,7 +142,7 @@ $(document).ready(function(){
           setTimeout(updatePapaCounter, 1000);
     }
 
-    function shwoMamaAlert(){
+    function showMamaAlert(){
       playMaleSound();
           setTimeout(function(){alert(mama + " moet de luier verschonen.")}, 2000);
           setTimeout(function(){mamaCounter++;}, 2000);
@@ -170,17 +171,11 @@ $(document).ready(function(){
       updatePapaCounter();
       updateMamaCounter();
     }
+// });
 
-
-
-
-
-
-
-
-
-
-
-
-
-});
+$(document).ready(
+  function(){
+    $('#clickButtonContainer').slideDown(1000);
+    $('#papaMamaContainer').slideDown(1000);  
+}
+)

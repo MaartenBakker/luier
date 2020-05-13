@@ -19,7 +19,7 @@
     color: #f2f4f0;
     font-size: 300%;
     margin: 5%;
-    margin-top: 60px;
+    margin-top: 20px;
     /* backdrop-filter: blur(1px);
     border-radius: 8px;
     moz-box-shadow: 1px 2px 3px rgba(0,0,0,.1);
@@ -33,10 +33,10 @@
    padding-left: 5%;
    padding-right: 5%;
    position: center;
-
   }
 
   #papaMamaContainer {
+    display: none;
     padding-top: 5%;
     font-size: 150%;
     padding-left: 5%;
@@ -101,6 +101,11 @@
     -webkit-transition-duration: 0.2s; /* Safari */
     transition-duration: 0.2s;
 
+  }
+
+
+  #clickButtonContainer{
+    display: none;
   }
 
   #clickButton {
