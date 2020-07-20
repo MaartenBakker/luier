@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function(){
 
   let papa = "Papa";
@@ -13,11 +15,11 @@ $(document).ready(function(){
   const papaKnop = function(){
     let papaInputNaam = prompt("Papa heet zo:", papa);
 
-    if (papaInputNaam != undefined){
+    if (papaInputNaam !== undefined){
         papaInputNaam = papaInputNaam.trim();
     };
 
-    if (papaInputNaam != undefined && papaInputNaam != "" ) {
+    if (papaInputNaam !== undefined && papaInputNaam !== "" ) {
         $("#papaNaam").html(papaInputNaam);
         papa = papaInputNaam;
         localStorage.setItem("papaNaamCache", papa);
@@ -27,11 +29,11 @@ $(document).ready(function(){
   const mamaKnop = function(){
     let mamaInputNaam = prompt("Mama heet zo:", mama);
 
-    if (mamaInputNaam != undefined){
+    if (mamaInputNaam !== undefined){
         mamaInputNaam = mamaInputNaam.trim();
     };
 
-    if (mamaInputNaam != undefined && mamaInputNaam != "" ) {
+    if (mamaInputNaam !== undefined && mamaInputNaam !== "" ) {
         $("#mamaNaam").html(mamaInputNaam);
         mama = mamaInputNaam;
         localStorage.setItem("mamaNaamCache", mama);
@@ -101,58 +103,58 @@ $(document).ready(function(){
       manYeahSound.play();
     } else {
       manYahaSound.play();
-    }
-  }
+    };
+  };
 
   const playFemaleSound = function(){
     if (papaCounter % 2 === 0) {
       femaleLaughSound.play();
     } else {
       femaleHumSound.play();
-    }
-  }
+    };
+  };
 
   const showPapaAlert = function(){
     playFemaleSound();
         setTimeout(function(){alert(papa + " moet de luier verschonen.")}, 1000);
         setTimeout(function(){papaCounter++;}, 1000);
         setTimeout(updatePapaCounter, 1000);
-  }
+  };
 
   const showMamaAlert = function(){
     playMaleSound();
         setTimeout(function(){alert(mama + " moet de luier verschonen.")}, 2000);
         setTimeout(function(){mamaCounter++;}, 2000);
         setTimeout(updateMamaCounter, 2000);
-  }
+  };
 
   const resetScores = function(){
     papaCounter=0;
     mamaCounter=0;
     updatePapaCounter();
     updateMamaCounter();
-  }
+  };
 
   //load stored values
-  if (localStorage.getItem("papaNaamCache") !=null){
+  if (localStorage.getItem("papaNaamCache") !== undefined){
       papa = localStorage.getItem("papaNaamCache");
       console.log(papa);
-  }
+  };
 
-  if (localStorage.getItem("mamaNaamCache") !=null){
+  if (localStorage.getItem("mamaNaamCache") !== undefined){
       mama = localStorage.getItem("mamaNaamCache");
       console.log(mama);
-  }
+  };
 
-  if (localStorage.getItem("papaCounterCache") !=null){
+  if (localStorage.getItem("papaCounterCache") !== undefined){
       papaCounter = localStorage.getItem("papaCounterCache");
       console.log(papaCounter);
-  }
+  };
 
-  if (localStorage.getItem("mamaCounterCache") !=null){
+  if (localStorage.getItem("mamaCounterCache") !== undefined){
       mamaCounter = localStorage.getItem("mamaCounterCache");
       console.log(mamaCounter);
-  }
+  };
 
 
   //set values on screen
