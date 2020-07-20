@@ -172,9 +172,9 @@ $(document).ready(function(){
 
   
   // opening animation
-  $('#clickButtonContainer').slideDown(1000);
-  $('#papaMamaContainer').slideDown(1000);  
-  $('#resetButtonContainer').slideDown(1000);
+  $("#clickButtonContainer").slideDown(1000);
+  $("#papaMamaContainer").slideDown(1000);  
+  $("#resetButtonContainer").slideDown(1000);
 
 });
 
