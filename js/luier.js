@@ -17,13 +17,13 @@ $(document).ready(function(){
 
     if (papaInputNaam !== undefined){
         papaInputNaam = papaInputNaam.trim();
-    };
+    }
 
     if (papaInputNaam !== undefined && papaInputNaam !== "" ) {
         $("#papaNaam").html(papaInputNaam);
         papa = papaInputNaam;
         localStorage.setItem("papaNaamCache", papa);
-    };
+    }
   };
 
   const mamaKnop = function(){
@@ -31,13 +31,13 @@ $(document).ready(function(){
 
     if (mamaInputNaam !== undefined){
         mamaInputNaam = mamaInputNaam.trim();
-    };
+    }
 
     if (mamaInputNaam !== undefined && mamaInputNaam !== "" ) {
         $("#mamaNaam").html(mamaInputNaam);
         mama = mamaInputNaam;
         localStorage.setItem("mamaNaamCache", mama);
-    };
+    }
   };
 
   const countThree = function() {
@@ -73,7 +73,7 @@ $(document).ready(function(){
         showMamaAlert();
     }
     setTimeout(resetClickButton, 3000);
-  }
+  };
   
   const wieVerschoontDeLuier = function() {
     countThree();
@@ -103,7 +103,7 @@ $(document).ready(function(){
       manYeahSound.play();
     } else {
       manYahaSound.play();
-    };
+    }
   };
 
   const playFemaleSound = function(){
@@ -111,7 +111,7 @@ $(document).ready(function(){
       femaleLaughSound.play();
     } else {
       femaleHumSound.play();
-    };
+    }
   };
 
   const showPapaAlert = function(){
@@ -139,22 +139,22 @@ $(document).ready(function(){
   if (localStorage.getItem("papaNaamCache") !== undefined){
       papa = localStorage.getItem("papaNaamCache");
       console.log(papa);
-  };
+  }
 
   if (localStorage.getItem("mamaNaamCache") !== undefined){
       mama = localStorage.getItem("mamaNaamCache");
       console.log(mama);
-  };
+  }
 
   if (localStorage.getItem("papaCounterCache") !== undefined){
       papaCounter = localStorage.getItem("papaCounterCache");
       console.log(papaCounter);
-  };
+  }
 
   if (localStorage.getItem("mamaCounterCache") !== undefined){
       mamaCounter = localStorage.getItem("mamaCounterCache");
       console.log(mamaCounter);
-  };
+  }
 
 
   //set values on screen
