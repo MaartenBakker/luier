@@ -1,181 +1,178 @@
+$(document).ready(function(){
 
-// $(document).ready(function(){
+  let papa = "Papa";
+  let mama = "Mama";
+  let papaCounter = 0;
+  let mamaCounter = 0;
+  const countDownSound = new Audio("audio/beep.wav");
+  const manYeahSound = new Audio("audio/manyeah.mp3");
+  const manYahaSound = new Audio("audio/maleyahaha.wav");
+  const femaleLaughSound = new Audio("audio/femalelaugh.wav");
+  const femaleHumSound = new Audio("audio/femalehum.wav");
 
-    //add listeners
-    $("#clickButton").click(wieVerschoontDeLuier);
-    $("#papa").click(papaKnop);
-    $("#mama").click(mamaKnop);
-    $("#resetButton").click(resetScores);
-    // $("#mama").on("load", playFemaleSound());
+  const papaKnop = function(){
+    let papaInputNaam = prompt("Papa heet zo:", papa);
 
-    var papa = "Papa";
-    var mama = "Mama";
-    var papaCounter = 0;
-    var mamaCounter = 0;
-    var countDownSound = new Audio("audio/beep.wav");
-    var manYeahSound = new Audio("audio/manyeah.mp3");
-    var manYahaSound = new Audio("audio/maleyahaha.wav");
-    var femaleLaughSound = new Audio("audio/femalelaugh.wav");
-    var femaleHumSound = new Audio("audio/femalehum.wav");
+    if (papaInputNaam != undefined){
+        papaInputNaam = papaInputNaam.trim();
+    };
 
+    if (papaInputNaam != undefined && papaInputNaam != "" ) {
+        $("#papaNaam").html(papaInputNaam);
+        papa = papaInputNaam;
+        localStorage.setItem("papaNaamCache", papa);
+    };
+  };
 
+  const mamaKnop = function(){
+    let mamaInputNaam = prompt("Mama heet zo:", mama);
 
-    //load stored values
-    if (localStorage.getItem("papaNaamCache") !=null){
-        papa = localStorage.getItem("papaNaamCache");
-        console.log(papa);
+    if (mamaInputNaam != undefined){
+        mamaInputNaam = mamaInputNaam.trim();
+    };
+
+    if (mamaInputNaam != undefined && mamaInputNaam != "" ) {
+        $("#mamaNaam").html(mamaInputNaam);
+        mama = mamaInputNaam;
+        localStorage.setItem("mamaNaamCache", mama);
+    };
+  };
+
+  const countThree = function() {
+    countDownSound.play();
+    $("#clickButton").html("3");
+    $("html").css("background-image", "url(img/luier_background_light_orange_extra_extra_small.jpg)");
+  };
+
+  const countTwo = function() {
+    countDownSound.play();
+    $("#clickButton").html("2");
+    $("html").css("background-image", "url(img/luier_background_orange_extra_extra_small.jpg)");
+  };
+
+  const countOne = function() {
+    countDownSound.play();
+    $("#clickButton").html("1");
+    $("html").css("background-image", "url(img/luier_background_dark_orange_extra_extra_small.jpg)");
+  };
+
+  const countZero = function() {
+    $("#clickButton").html("0");
+    $("html").css("background-image", "url(img/luier_background_red_extra_extra_small.jpg)");
+  };
+
+  const alertAnswer = function(){
+    let randomNumber = Math.random();
+    randomNumber *= 10;
+    randomNumber = Math.floor(randomNumber);
+    if (randomNumber % 2 === 0) {
+        showPapaAlert();
+    } else {
+        showMamaAlert();
     }
+    setTimeout(resetClickButton, 3000);
+  }
+  
+  const wieVerschoontDeLuier = function() {
+    countThree();
+    setTimeout(countTwo, 1000);
+    setTimeout(countOne, 2000);
+    setTimeout(countZero, 3000);
+    setTimeout(alertAnswer, 3100);
+  };
 
-    if (localStorage.getItem("mamaNaamCache") !=null){
-        mama = localStorage.getItem("mamaNaamCache");
-        console.log(mama);
-    }
+  const resetClickButton = function() {
+    $("#clickButton").html("Klik");
+    $("html").css("background-image", "url(img/luier_background_green_extra_extra_small.jpg)");
+  };
 
-    if (localStorage.getItem("papaCounterCache") !=null){
-        papaCounter = localStorage.getItem("papaCounterCache");
-        console.log(papaCounter);
-    }
-
-    if (localStorage.getItem("mamaCounterCache") !=null){
-        mamaCounter = localStorage.getItem("mamaCounterCache");
-        console.log(mamaCounter);
-    }
-
-    //set values on screen
+  const updatePapaCounter = function() {
     $("#papaCounter").html(papaCounter);
+    localStorage.setItem("papaCounterCache", papaCounter);
+  };
+
+  const updateMamaCounter = function() {
     $("#mamaCounter").html(mamaCounter);
+    localStorage.setItem("mamaCounterCache", mamaCounter);
+  };
 
-    $("#papaNaam").html(papa);
-    $("#mamaNaam").html(mama);
-
-    //functions
-    function papaKnop(){
-      var papaInputNaam = prompt("Papa heet zo", papa);
-
-      if (papaInputNaam != null){
-          papaInputNaam = papaInputNaam.trim();
-      }
-
-      if (papaInputNaam != null && papaInputNaam != "" ) {
-          $("#papaNaam").html(papaInputNaam);
-          papa = papaInputNaam;
-          localStorage.setItem("papaNaamCache", papa);
-      }
+  const playMaleSound = function(){
+    if (mamaCounter % 2 === 0) {
+      manYeahSound.play();
+    } else {
+      manYahaSound.play();
     }
+  }
 
-    function mamaKnop(){
-      var mamaInputNaam = prompt("Mama heet zo", mama);
-
-      if (mamaInputNaam != null){
-          mamaInputNaam = mamaInputNaam.trim();
-      }
-
-      if (mamaInputNaam != null && mamaInputNaam != "" ) {
-          $("#mamaNaam").html(mamaInputNaam);
-          mama = mamaInputNaam;
-          localStorage.setItem("mamaNaamCache", mama);
-      }
+  const playFemaleSound = function(){
+    if (papaCounter % 2 === 0) {
+      femaleLaughSound.play();
+    } else {
+      femaleHumSound.play();
     }
+  }
 
-    function wieVerschoontDeLuier() {
-      countThree();
-      setTimeout(countTwo, 1000);
-      setTimeout(countOne, 2000);
-      setTimeout(countZero, 3000);
-      setTimeout(alertAnswer, 3100);
-    }
+  const showPapaAlert = function(){
+    playFemaleSound();
+        setTimeout(function(){alert(papa + " moet de luier verschonen.")}, 1000);
+        setTimeout(function(){papaCounter++;}, 1000);
+        setTimeout(updatePapaCounter, 1000);
+  }
 
-    function countThree() {
-      countDownSound.play();
-      $("#clickButton").html("3");
-      $("html").css("background-image", "url(img/luier_background_light_orange_extra_extra_small.jpg)");
-    }
+  const showMamaAlert = function(){
+    playMaleSound();
+        setTimeout(function(){alert(mama + " moet de luier verschonen.")}, 2000);
+        setTimeout(function(){mamaCounter++;}, 2000);
+        setTimeout(updateMamaCounter, 2000);
+  }
 
-    function countTwo() {
-      countDownSound.play();
-      $("#clickButton").html("2");
-      $("html").css("background-image", "url(img/luier_background_orange_extra_extra_small.jpg)");
-    }
+  const resetScores = function(){
+    papaCounter=0;
+    mamaCounter=0;
+    updatePapaCounter();
+    updateMamaCounter();
+  }
 
-    function countOne() {
-      countDownSound.play();
-      $("#clickButton").html("1");
-      $("html").css("background-image", "url(img/luier_background_dark_orange_extra_extra_small.jpg)");
-    }
+  //load stored values
+  if (localStorage.getItem("papaNaamCache") !=null){
+      papa = localStorage.getItem("papaNaamCache");
+      console.log(papa);
+  }
 
-    function countZero() {
-      $("#clickButton").html("0");
-      $("html").css("background-image", "url(img/luier_background_red_extra_extra_small.jpg)");
-    }
+  if (localStorage.getItem("mamaNaamCache") !=null){
+      mama = localStorage.getItem("mamaNaamCache");
+      console.log(mama);
+  }
 
-    function resetClickButton() {
-      $("#clickButton").html("Klik");
-      $("html").css("background-image", "url(img/luier_background_green_extra_extra_small.jpg)");
-    }
+  if (localStorage.getItem("papaCounterCache") !=null){
+      papaCounter = localStorage.getItem("papaCounterCache");
+      console.log(papaCounter);
+  }
 
-    function updatePapaCounter() {
-      $("#papaCounter").html(papaCounter);
-      localStorage.setItem("papaCounterCache", papaCounter);
-    }
+  if (localStorage.getItem("mamaCounterCache") !=null){
+      mamaCounter = localStorage.getItem("mamaCounterCache");
+      console.log(mamaCounter);
+  }
 
-    function updateMamaCounter() {
-      $("#mamaCounter").html(mamaCounter);
-      localStorage.setItem("mamaCounterCache", mamaCounter);
-    }
 
-    function alertAnswer(){
-      let randomNumber = Math.random();
-      randomNumber *= 10;
-      randomNumber = Math.floor(randomNumber);
-      if (randomNumber % 2 === 0) {
-          showPapaAlert();
-      } else {
-          showMamaAlert();
-      }
-      setTimeout(resetClickButton, 3000);
-    }
+  //set values on screen
+  $("#papaCounter").html(papaCounter);
+  $("#mamaCounter").html(mamaCounter);
 
-    function showPapaAlert(){
-      playFemaleSound();
-          setTimeout(function(){alert(papa + " moet de luier verschonen.")}, 1000);
-          setTimeout(function(){papaCounter++;}, 1000);
-          setTimeout(updatePapaCounter, 1000);
-    }
+  $("#papaNaam").html(papa);
+  $("#mamaNaam").html(mama);
 
-    function showMamaAlert(){
-      playMaleSound();
-          setTimeout(function(){alert(mama + " moet de luier verschonen.")}, 2000);
-          setTimeout(function(){mamaCounter++;}, 2000);
-          setTimeout(updateMamaCounter, 2000);
-    }
+  //add listeners
+  $("#clickButton").on("click", wieVerschoontDeLuier);
+  $("#papa").on("click", papaKnop);
+  $("#mama").on("click", mamaKnop);
+  $("#resetButton").on("click",resetScores);
 
-    function playMaleSound(){
-      if (mamaCounter % 2 === 0) {
-        manYeahSound.play();
-      } else {
-        manYahaSound.play();
-      }
-    }
+  
+  // opening animation
+  $('#clickButtonContainer').slideDown(1000);
+  $('#papaMamaContainer').slideDown(1000);  
+  $('#resetButtonContainer').slideDown(1000);
 
-    function playFemaleSound(){
-      if (papaCounter % 2 === 0) {
-        femaleLaughSound.play();
-      } else {
-        femaleHumSound.play();
-      }
-    }
+});
 
-    function resetScores(){
-      papaCounter=0;
-      mamaCounter=0;
-      updatePapaCounter();
-      updateMamaCounter();
-    }
-// });
-
-$(document).ready(
-  function(){
-    $('#clickButtonContainer').slideDown(1000);
-    $('#papaMamaContainer').slideDown(1000);  
-}
-)
